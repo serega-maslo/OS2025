@@ -1,0 +1,10 @@
+^C:\USERS\USER\DOCUMENTS\GITHUB\OS2025\ZD1\WINDOWS\MY_PROJECT\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project -BC:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build --check-stamp-file C:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

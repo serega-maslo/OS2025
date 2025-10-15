@@ -1,0 +1,13 @@
+﻿  main.cpp
+C:\Users\user\Documents\GitHub\OS2025\zd1\Windows\my_project\src\Vector\include\Vector.h(19,12): warning C4251: "Vector::x_coord": "Number" должен иметь dll-интерфейс для использования клиентами "Vector"
+  (компиляция исходного файла "../src/main.cpp")
+      C:\Users\user\Documents\GitHub\OS2025\zd1\Windows\my_project\src\Number\include\Number.h(5,7):
+       см. объявление "Number"
+  
+C:\Users\user\Documents\GitHub\OS2025\zd1\Windows\my_project\src\Vector\include\Vector.h(20,12): warning C4251: "Vector::y_coord": "Number" должен иметь dll-интерфейс для использования клиентами "Vector"
+  (компиляция исходного файла "../src/main.cpp")
+      C:\Users\user\Documents\GitHub\OS2025\zd1\Windows\my_project\src\Number\include\Number.h(5,7):
+       см. объявление "Number"
+  
+  main_app.vcxproj -> C:\Users\user\Documents\GitHub\OS2025\zd1\Windows\my_project\build\Debug\main_app.exe
+  Copying Vector DLL to executable directory

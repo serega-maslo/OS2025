@@ -1,0 +1,5 @@
+C:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build/CMakeFiles/main_app.dir
+C:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build/src/Number/CMakeFiles/Number.dir
+C:/Users/user/Documents/GitHub/OS2025/zd1/Windows/my_project/build/src/Vector/CMakeFiles/Vector.dir
