@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/main_app.dir/src/main.cpp.o -o main_app  -Wl,-rpath,/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Vector src/Vector/libVector.so

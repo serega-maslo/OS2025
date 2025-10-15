@@ -1,0 +1,9 @@
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/CMakeFiles/main_app.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/CMakeFiles/edit_cache.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/CMakeFiles/rebuild_cache.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Number/CMakeFiles/Number.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Number/CMakeFiles/edit_cache.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Number/CMakeFiles/rebuild_cache.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Vector/CMakeFiles/Vector.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Vector/CMakeFiles/edit_cache.dir
+/home/destroyer_2007/Documents/GitHub/OS2025/my_project/build/src/Vector/CMakeFiles/rebuild_cache.dir
