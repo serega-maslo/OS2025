@@ -1,0 +1,3 @@
+/mnt/c/Users/User/Desktop/дз/matrix/linux/build/CMakeFiles/pthread_demo.dir
+/mnt/c/Users/User/Desktop/дз/matrix/linux/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/User/Desktop/дз/matrix/linux/build/CMakeFiles/rebuild_cache.dir
