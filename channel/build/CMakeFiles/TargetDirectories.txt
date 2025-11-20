@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/дз/channel/build/CMakeFiles/matrix_mult_channel.dir
+C:/Users/user/Desktop/дз/channel/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/user/Desktop/дз/channel/build/CMakeFiles/ZERO_CHECK.dir
