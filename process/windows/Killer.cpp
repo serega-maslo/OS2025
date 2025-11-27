@@ -2,75 +2,61 @@
 #include <windows.h>
 #include <tlhelp32.h>
 #include <string>
-#include <vector>
 #include <sstream>
 
-void KillProcessByID(DWORD pid) {
-    HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, pid);
-    if (hProcess == NULL) {
-        DWORD error = GetLastError(); 
-        
-        if (error == 87) {
-             std::cerr << "[Killer] PID " << pid << " not found (already closed or PID recycled)." << std::endl;
-        } else {
-             std::cerr << "[Killer] Failed to open PID: " << pid << ". Error Code: " << error << std::endl;
-        }
-        return;
+HANDLE OpenProcessForKill(DWORD pid) {
+    HANDLE h = OpenProcess(
+        PROCESS_TERMINATE | PROCESS_QUERY_INFORMATION | PROCESS_VM_READ,
+        FALSE,
+        pid
+    );
+    if (!h) {
+        h = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
     }
-    
-    if (TerminateProcess(hProcess, 0)) {
-        std::cout << "[Killer] PID " << pid << " terminated." << std::endl;
-    } else {
-        std::cerr << "[Killer] Error terminating PID " << pid << std::endl;
-    }
-    CloseHandle(hProcess);
+    return h;
 }
 
-void KillProcessByName(const std::string& processName) {
-    HANDLE hSnapshot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
-    if (hSnapshot == INVALID_HANDLE_VALUE) return;
-
-    PROCESSENTRY32 pe32;
-    pe32.dwSize = sizeof(PROCESSENTRY32);
-
-    if (Process32First(hSnapshot, &pe32)) {
-        do {
-            if (_stricmp(pe32.szExeFile, processName.c_str()) == 0) {
-                std::cout << "[Killer] Found '" << processName << "' (PID: " << pe32.th32ProcessID << ")..." << std::endl;
-                KillProcessByID(pe32.th32ProcessID);
-            }
-        } while (Process32Next(hSnapshot, &pe32));
+void KillProcessByID(DWORD pid) {
+    HANDLE h = OpenProcessForKill(pid);
+    if (!h) {
+        std::cerr << "[Killer] Can't open PID " << pid << std::endl;
+        return;
     }
-    CloseHandle(hSnapshot);
+    TerminateProcess(h, 0);
+    CloseHandle(h);
+    std::cout << "[Killer] Killed PID " << pid << std::endl;
+}
+
+void KillProcessByName(const std::string& name) {
+    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0);
+    if (snap == INVALID_HANDLE_VALUE) return;
+
+    PROCESSENTRY32 pe;
+    pe.dwSize = sizeof(pe);
+
+    if (Process32First(snap, &pe)) {
+        do {
+            if (_stricmp(pe.szExeFile, name.c_str()) == 0)
+                KillProcessByID(pe.th32ProcessID);
+        } while (Process32Next(snap, &pe));
+    }
+    CloseHandle(snap);
 }
 
 int main(int argc, char* argv[]) {
     if (argc >= 3) {
-        std::string argType = argv[1];
-        std::string argValue = argv[2];
-
-        if (argType == "--id") {
-            DWORD pid = std::stoul(argValue);
-            KillProcessByID(pid);
-        } 
-        else if (argType == "--name") {
-            KillProcessByName(argValue);
-        }
+        std::string t = argv[1], v = argv[2];
+        if (t == "--id") KillProcessByID(std::stoul(v));
+        else if (t == "--name") KillProcessByName(v);
     }
 
-    const int bufferSize = 32767;
-    char buffer[bufferSize];
-    if (GetEnvironmentVariable("PROC_TO_KILL", buffer, bufferSize) > 0) {
-        std::string envStr = buffer;
-        std::stringstream ss(envStr);
-        std::string segment;
-        
-        while (std::getline(ss, segment, ',')) {
-            if (!segment.empty()) {
-                KillProcessByName(segment);
-            }
+    char buf[32767];
+    if (GetEnvironmentVariable("PROC_TO_KILL", buf, 32767) > 0) {
+        std::stringstream ss(buf);
+        std::string name;
+        while (std::getline(ss, name, ',')) {
+            if (!name.empty()) KillProcessByName(name);
         }
     }
-
     return 0;
 }
