@@ -1,0 +1,4 @@
+/mnt/c/Users/user/Desktop/дз/process/linux/build/CMakeFiles/Killer.dir
+/mnt/c/Users/user/Desktop/дз/process/linux/build/CMakeFiles/User.dir
+/mnt/c/Users/user/Desktop/дз/process/linux/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/user/Desktop/дз/process/linux/build/CMakeFiles/rebuild_cache.dir

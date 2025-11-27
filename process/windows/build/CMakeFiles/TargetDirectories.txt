@@ -1,0 +1,4 @@
+C:/Users/user/Desktop/дз/process/windows/build/CMakeFiles/Killer.dir
+C:/Users/user/Desktop/дз/process/windows/build/CMakeFiles/User.dir
+C:/Users/user/Desktop/дз/process/windows/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/user/Desktop/дз/process/windows/build/CMakeFiles/ZERO_CHECK.dir
